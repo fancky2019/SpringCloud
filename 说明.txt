@@ -1,0 +1,3 @@
+1、Client（服务）注册到注册中心（RegisterCenter）。
+2、Gateway 路由规则调用注册中心的服务。
+3、Consumer调用注册中心的服务。
