@@ -11,7 +11,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 public class DemoApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        /*
+        FeignClient:集成了Ribbon和Hystrix
+        用于微服务之间的调用
+         */
         SpringApplication.run(DemoApplication.class, args);
     }
 
