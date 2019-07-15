@@ -11,6 +11,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 public class DemoApplication {
+    /*
+    此项目多余，暂时不删除
+     */
     public static void main(String[] args)
     {
         /*
