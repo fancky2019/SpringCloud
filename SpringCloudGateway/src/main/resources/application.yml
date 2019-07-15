@@ -8,6 +8,8 @@ spring:
         locator:      #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
           #http://localhost:8080/USER/user?name=a
           enabled: true
+          # 将请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了）如：server-->注册中心SERVER
+          lowerCaseServiceId: true
       routes:
         - id:  163
           uri: http://www.163.com/
@@ -17,18 +19,35 @@ spring:
           # 带前缀
           filters:
             - StripPrefix=1
-        #id 必须大写，名称随便
-        - id:  REGISTERCENTER
+        #id 必须大写，名称随便REGISTERCENTER
+        - id: registercenter
           # lb代表从注册中心获取服务，SERVER:为注册中心的服务名称
           #会用自带的负载均衡
           uri: lb://SERVER
           predicates:
-            #user名称随便，但是必须大写
-            - Path=/USER/**
+            #路径要对应，区分大小写
+            - Path=/userservice/**
           filters:
+            #从/userservice/**开始转发跳过的目录数，StripPrefix=1跳过/userservice/
             - StripPrefix=1
+#        - id: registercenter1
+#          # lb代表从注册中心获取服务，SERVER:为注册中心的服务名称
+#          #会用自带的负载均衡
+#          uri: lb://SERVER1
+#          predicates:
+#            #路径要对应，区分大小写
+#            - Path=/userservice1/**
+#          filters:
+#            #从/userservice/**开始转发跳过的目录数，StripPrefix=1跳过/userservice/
+#            - StripPrefix=1
 
+#注册到注册中心，分发调用注册中心的服务。
+eureka:
+  client:
+    # Eureka Server地址
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 #注意：服务中心和提供的服务都要启动
 #打开链接测试，不停刷新会发现负载均衡
-#http://localhost:8080/USER/user?name=a
+#http://localhost:8080/userservice/user?name=a
 
