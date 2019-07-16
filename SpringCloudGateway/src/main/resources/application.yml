@@ -12,6 +12,17 @@ spring:
     # 验证码
     password: fancky123456
     # 链接超时时间（毫秒）
+    jedis:
+      pool:
+        # 最大空闲连接
+        max-idle: 8
+        # 最小空闲链接
+        min-idle: 0
+        # 最大连接数（负数表示没有限制）
+        max-active: 8
+        # 最大阻塞等待时间（负数表示没有限制）
+        max-wait: 0
+    # 链接超时时间（毫秒）
     timeout: 50
 
   cloud:
