@@ -19,7 +19,7 @@ public class UserController {
       //  Integer m=Integer.valueOf("m");
         try
         {
-          Thread.sleep(7000);
+          Thread.sleep(1500);
         }
         catch (Exception ex)
         {
