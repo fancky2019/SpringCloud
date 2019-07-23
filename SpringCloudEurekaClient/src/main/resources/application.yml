@@ -7,5 +7,5 @@ server:
   port: 8762
 spring:
   application:
-# name到服务中心会转换成大写
+    # name到服务中心会转换成大写
     name: server
