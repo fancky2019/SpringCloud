@@ -16,13 +16,10 @@ public class UserController {
 
     @RequestMapping("")
     public String home(@RequestParam String name) {
-      //  Integer m=Integer.valueOf("m");
-        try
-        {
-          Thread.sleep(1500);
-        }
-        catch (Exception ex)
-        {
+        //  Integer m=Integer.valueOf("m");
+        try {
+            Thread.sleep(1500);
+        } catch (Exception ex) {
 
         }
         return "servername:" + servername + ",port:" + port.toString() + ",param:" + name;

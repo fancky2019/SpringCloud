@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class FanckyApplication {
 
     public static void main(String[] args) {
-       //打开注册中心:http://localhost:8761
+        //打开注册中心:http://localhost:8761
 
         /*
         先启动注册中心然后启动微服务客户端，否则微服务无法注册到注册中心。
