@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fancky2019/springcloudconfigfiles.git  # 远程git仓库的地址
+          username: fancky2019  # 以及相应的账户名
+          password: li5rui31987  # 和密码
+          basedir: D:\fancky\Git\Java\springcloudconfigfiles\ # 可以使用这个配置项来指定本地git仓库的路径
+          search-paths: /**  # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
+      label: fancky #配置仓库的分支,默认master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8031

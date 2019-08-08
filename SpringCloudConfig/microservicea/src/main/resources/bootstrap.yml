@@ -1,0 +1,17 @@
+#如果配置文件编码不是utf-8编译不通过，配置文件格式不正确编译也通不过。
+server:
+  port: 8032
+spring:
+  application:
+    name: microservicea #名称要和github中配置文件的名称一致
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIGSERVER #注册中心的配置服务的服务名
+      profile: microservicea  #配置中心的配置文件名称
+      label: fancky #配置仓库的分支,默认master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
