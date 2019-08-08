@@ -4,13 +4,13 @@ server:
   port: 8033
 spring:
   application:
-    name: microserviceb #名称要和github中配置文件的名称一致
+    name: microserviceb  #要和配置文件名一致（microservicea-dev.yml 的-之前的部分）
   cloud:
     config:
       discovery:
         enabled: true
         service-id: CONFIGSERVER #注册中心的配置服务的服务名
-      profile: microserviceb  #配置中心的配置文件名称
+      profile: dev  #配置文件的dev： microservicea-dev.yml
       label: fancky #配置仓库的分支,默认master
 
 eureka:
