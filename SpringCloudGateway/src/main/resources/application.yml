@@ -78,8 +78,10 @@ spring:
             #路径要对应，区分大小写
             - Path=/gateway/springBootProject/**
           filters:
-            #从/userservice/**开始转发跳过的目录数，StripPrefix=1跳过/userservice/
-            # http://localhost:8080/gateway/springBootProject/feignclient/testParam?name=fanckyTest1
+            #从/gateway/springBootProject/**开始转发跳过的目录数，StripPrefix=2跳过/gateway/springBootProject/
+            # 如：http://localhost:8080/gateway/springBootProject/feignclient/testParam?name=fanckyTest1
+            #StripPrefix=2  跳过之后变成http://localhost:8080/feignclient/testParam?name=fanckyTest1
+            #直接访问http://localhost:8080/feignclient/testParam?name=fanckyTest1
             - StripPrefix=2
             # RedisRateLimter RequestRateLimiter
             - name: RequestRateLimiter

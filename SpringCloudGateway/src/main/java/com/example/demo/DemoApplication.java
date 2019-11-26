@@ -15,6 +15,17 @@ public class DemoApplication {
     //注意创建模板选择Cloud Discovery下的Eureka Server,不选择模板加入Gateway依赖 Maven Unknown错误.
     //添加好Gateway依赖，刷新Maven,Gateway依赖显示出来之后，将pom文件中的Eureka依赖删掉，
     //刷新Maven发信Eureka依赖移除了。
+
+
+
+    /*
+    Spring Cloud Gateway 功能：
+    一、路由转发。
+    二、过滤。
+    三、限流。集成Redis 实现。
+    四、熔断。集成Hystrix来实现。
+    五、鉴权。
+     */
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }

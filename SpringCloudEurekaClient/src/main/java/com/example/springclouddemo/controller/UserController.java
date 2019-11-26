@@ -18,6 +18,8 @@ public class UserController {
     public String home(@RequestParam String name) {
         //  Integer m=Integer.valueOf("m");
         try {
+            //超时异常
+            //hystrix： #断路器超时时间，默认1000ms
             Thread.sleep(1500);
         } catch (Exception ex) {
 
