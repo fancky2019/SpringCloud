@@ -76,11 +76,14 @@ spring:
           uri: lb://SPRINGBOOTPROJECT
           predicates:
             #路径要对应，区分大小写
+            # 前端先访问网关，网关路由转发请求后端的微服务。
+            # 访问网关URL: url: "http://localhost:8080/gateway/springBootProject/jwt/authorise",//url填写的是请求的路径
+            #微服务URL:http://localhost:8080/jwt/authorise。此处配置StripPrefix=2 跳过/gateway/springBootProject
             - Path=/gateway/springBootProject/**
           filters:
-            #从/gateway/springBootProject/**开始转发跳过的目录数，StripPrefix=2跳过/gateway/springBootProject/
+            #从/gateway/springBootProject/**开始转发跳过的目录数，StripPrefix=2跳过两层目录：/gateway/springBootProject/
             # 如：http://localhost:8080/gateway/springBootProject/feignclient/testParam?name=fanckyTest1
-            #StripPrefix=2  跳过之后变成http://localhost:8080/feignclient/testParam?name=fanckyTest1
+            #StripPrefix=2  跳过2层目录之后之后变成http://localhost:8080/feignclient/testParam?name=fanckyTest1
             #直接访问http://localhost:8080/feignclient/testParam?name=fanckyTest1
             - StripPrefix=2
             # RedisRateLimter RequestRateLimiter
@@ -119,3 +122,11 @@ eureka:
 #打开链接测试，不停刷新会发现负载均衡
 #http://localhost:8080/userservice/user?name=a
 
+
+
+
+
+
+
+demo:
+  JWTSecretKey: GQDstcKsx0NHjPOuXOYg5MbeJ1XT0uFiwDVvVBrk
