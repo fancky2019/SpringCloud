@@ -46,7 +46,8 @@ spring:
         #id 必须大写，名称随便REGISTERCENTER
         - id: registercenter
           # lb代表从注册中心获取服务，SERVER:为注册中心的服务名称
-          #会用自带的负载均衡
+          #会用自带的负载均衡：http://localhost:8080/gateway1/user?name=a
+          # 客户端负载均衡实现：两个微服务注册到注册中心的名称一样，ip和端口不一样
           uri: lb://SERVER
           predicates:
             #路径要对应，区分大小写
@@ -118,9 +119,11 @@ eureka:
     # Eureka Server地址
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
 #注意：服务中心和提供的服务都要启动
 #打开链接测试，不停刷新会发现负载均衡
-#http://localhost:8080/userservice/user?name=a
+#http://localhost:8080/gateway1/user?name=a
 
 
 

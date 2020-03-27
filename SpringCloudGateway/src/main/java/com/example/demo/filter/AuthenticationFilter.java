@@ -7,6 +7,7 @@ import com.example.demo.utility.JWTUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.cloud.netflix.ribbon.RibbonClientConfiguration;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
@@ -41,8 +42,14 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
         String url = exchange.getRequest().getURI().getPath();
         //获取token
         String token = exchange.getRequest().getHeaders().getFirst("token");
-        ServerHttpResponse serverHttpResponse = exchange.getResponse();
+        //如果不想使用权限过滤器，将下面注释。
+//        if(token==null||token=="")
+//        {
+//            return chain.filter(exchange);
+//        }
 
+
+        ServerHttpResponse serverHttpResponse = exchange.getResponse();
         try {
             DecodedJWT decodedJWT = null;
 
