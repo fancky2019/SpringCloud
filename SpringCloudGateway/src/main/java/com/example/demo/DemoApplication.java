@@ -26,11 +26,20 @@ public class DemoApplication {
 
     /*
     Spring Cloud Gateway 功能：
-    一、路由转发。
+    一、路由转发、负载均衡。
     二、过滤。Filter过滤
     三、限流。集成Redis 实现。
     四、熔断。集成Hystrix来实现。
     五、鉴权。Filter通过JWT。
+
+
+    负载均衡（客户端负载均衡）：默认的负载均衡规则在RibbonClientConfiguration类中配置，
+             和Feign一样Gateway集成了Ribbon和hystrix。
+
+    客户端负载均衡：客户端负载均衡：例如spring cloud中的ribbon，客户端会有一个服务器地址列表，在发送请求前通过负载均衡算法选择一个服务器，然后进行访问，这是客户端负载均衡；
+                    即在客户端就进行负载均衡算法分配。
+    服务端负载均衡：如Nginx，通过Ngnix进行负载均衡，先发送请求，然后通过负载均衡算法，在多个服务器之间选择一个进行访问；
+                    即在服务器端再进行负载均衡算法分配。
      */
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
