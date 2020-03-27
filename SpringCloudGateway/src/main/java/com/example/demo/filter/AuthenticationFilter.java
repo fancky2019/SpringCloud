@@ -42,6 +42,16 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
         String url = exchange.getRequest().getURI().getPath();
         //获取token
         String token = exchange.getRequest().getHeaders().getFirst("token");
+
+
+        /*
+         如果不需要token验证：
+                             一、可以根据请求头中是否加入token来判断是否需要鉴权。
+                             二、可以将需要验证的路由加入到服务器的配置文件中，
+                                  请求到来时候，从配置中找该路径是否需要token，
+                                  如果需要则验证，不需要则放过。这样可防止客户端token
+                                  被恶意篡改。
+         */
         //如果不想使用权限过滤器，将下面注释。
 //        if(token==null||token=="")
 //        {
