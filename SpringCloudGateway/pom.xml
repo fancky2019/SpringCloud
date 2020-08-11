@@ -25,24 +25,28 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  网关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  熔断-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  Redis 限流：别忘记启动Redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
        <!-- 登录、鉴权-->
