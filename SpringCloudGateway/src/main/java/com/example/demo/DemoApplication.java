@@ -13,6 +13,38 @@ import org.springframework.context.annotation.Bean;
 public class DemoApplication {
 
     /*
+    springboot和springcloud版本要匹配，不然maven依赖就会报错。有重复，不同版本依赖要在pop引用位置排除不同版本
+    如：
+    <!--        排除slf4j-log4j12多个版本依赖-->
+        <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>5.1.0</version>
+        </dependency>
+
+
+
+
+
+
+    <!--    springboot和springcloud版本匹配： https://start.spring.io/actuator/info-->
+
+   <!--    其他-->
+   <!--    spring-cloud-dependencies 版本列表可查看：https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies-->
+   <!--    spring-boot-starter-parent 版本列表可查看：https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent-->
+
+
+     */
+
+
+    /*
     启动的时候先启动注册中心，其他微服务要注册到注册中心，网关从注册中心访问微服务。
      */
 
@@ -40,6 +72,25 @@ public class DemoApplication {
                     即在客户端就进行负载均衡算法分配。
     服务端负载均衡：如Nginx，通过Ngnix进行负载均衡，先发送请求，然后通过负载均衡算法，在多个服务器之间选择一个进行访问；
                     即在服务器端再进行负载均衡算法分配。
+
+
+/*
+#指定本服务的端口号
+server:
+  port: 8762
+spring:
+  application:
+    # name到服务中心会转换成大写
+    name: server
+     */
+    /*
+    注册中心：服务注册到注册中心，服务指定自己的名称，到服务中心会转换成大写。
+              多个服务可注册相同的名称，网关路由转发url采用lb:前缀就会负载均衡。
+
+    网关执行流程：一、访问网关url。
+                  二、网关路由url转发。url前缀lb:代表LoadBalance
+                  三、到注册中心去找网关转发的url并访问。
+
      */
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
