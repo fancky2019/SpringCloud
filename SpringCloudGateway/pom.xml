@@ -2,21 +2,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!--    spring-boot的版本号-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
+    <!--    springcloud版本号-->
+    <!--    注：springboot版本号要和springcloud版本匹配-->
+    <!-- 查看匹配版本：   https://start.spring.io/actuator/info-->
+
+<!--    springboot和springcloud版本匹配： https://start.spring.io/actuator/info-->
+
+<!--    其他-->
+<!--    spring-cloud-dependencies 版本列表可查看：https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies-->
+<!--    spring-boot-starter-parent 版本列表可查看：https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent-->
+
+
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -25,31 +39,27 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  网关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
-            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  熔断-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>2.1.0.RELEASE</version>
         </dependency>
 
         <!--  Redis 限流：别忘记启动Redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-            <version>2.1.0.RELEASE</version>
         </dependency>
 
-       <!-- 登录、鉴权-->
+        <!-- 登录、鉴权-->
         <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
         <dependency>
             <groupId>com.auth0</groupId>

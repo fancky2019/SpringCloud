@@ -1,3 +1,7 @@
+
+#指定本服务的端口号，默认8080
+server:
+  port: 8080
 spring:
   application:
     name: gateway-service
@@ -45,7 +49,8 @@ spring:
             - StripPrefix=1
         #id 必须大写，名称随便REGISTERCENTER
         - id: registercenter
-          # lb代表从注册中心获取服务，SERVER:为注册中心的服务名称
+          # 是否会经过负载均衡，是通过判断uri的schema的，如果是以lb开头，则会开启负载均衡
+          # lb代表会经过负载均衡，从注册中心获取服务，SERVER:为注册中心的服务名称
           #会用自带的负载均衡：http://localhost:8080/gateway1/user?name=a
           # 客户端负载均衡实现：两个微服务注册到注册中心的名称一样，ip和端口不一样
           uri: lb://SERVER
