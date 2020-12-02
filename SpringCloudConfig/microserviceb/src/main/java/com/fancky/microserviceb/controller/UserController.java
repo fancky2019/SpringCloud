@@ -28,6 +28,6 @@ public class UserController {
 
     @GetMapping("/getMicroserviceaConfig")
     public String getMicroserviceaConfig() {
-        return MessageFormat.format("{0},{1}",account,interval);
+        return MessageFormat.format("{0},{1}", account, interval);
     }
 }

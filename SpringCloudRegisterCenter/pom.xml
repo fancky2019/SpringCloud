@@ -12,7 +12,6 @@
     </parent>
 
 
-
     <groupId>com.example</groupId>
     <artifactId>fancky</artifactId>
     <version>0.0.1-SNAPSHOT</version>

@@ -26,7 +26,7 @@ CorsWebFilter
 @Configuration
 public class CorsFilterConfig {
 
-   // private static final String MAX_AGE = "18000L";
+    // private static final String MAX_AGE = "18000L";
 
 //    @Bean
 //    public WebFilter corsFilter() {
@@ -60,6 +60,7 @@ public class CorsFilterConfig {
 
     /**
      * 配置跨域
+     *
      * @return
      */
     @Bean
@@ -80,10 +81,6 @@ public class CorsFilterConfig {
 
         return new CorsWebFilter(source);
     }
-
-
-
-
 
 
 }
