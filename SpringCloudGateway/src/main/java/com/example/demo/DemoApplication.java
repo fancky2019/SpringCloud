@@ -49,11 +49,9 @@ public class DemoApplication {
      */
 
 
-
     //注意创建模板选择Cloud Discovery下的Eureka Server,不选择模板加入Gateway依赖 Maven Unknown错误.
     //添加好Gateway依赖，刷新Maven,Gateway依赖显示出来之后，将pom文件中的Eureka依赖删掉，
     //刷新Maven发信Eureka依赖移除了。
-
 
 
     /*

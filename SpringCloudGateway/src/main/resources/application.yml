@@ -1,4 +1,3 @@
-
 #指定本服务的端口号，默认8080
 server:
   port: 8080
@@ -32,14 +31,14 @@ spring:
   cloud:
     gateway:
       # default-filters:
-      discovery:      #是否与服务发现组件进行结合，通过 serviceId(必须设置成大写) 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
-        locator:      #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
+      discovery: #是否与服务发现组件进行结合，通过 serviceId(必须设置成大写) 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
+        locator: #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
           #http://localhost:8080/gateway/user?name=a
           enabled: true
           # 将请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了）如：server-->注册中心SERVER
           lowerCaseServiceId: true
       routes:
-        - id:  163
+        - id: 163
           uri: http://www.163.com/
           predicates:
             # 转发该路径
@@ -109,7 +108,7 @@ spring:
                 fallbackUri: forward:/servercallback/springbootproject
 hystrix:
   command:
-    default:  #default全局有效，service id指定应用有效
+    default: #default全局有效，service id指定应用有效
       execution:
         timeout:
           #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
