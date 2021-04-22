@@ -69,6 +69,7 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
                 decodedJWT = jwtUtility.verifier(token);
             } catch (TokenExpiredException e) {
 
+                //在SpringbootProject项目中
                 String loginUrl = "http://localhost:8101/user/login?name=fancky&password=pas";
 
                 // httpServletResponse.addHeader("REDIRECT", "REDIRECT");//
