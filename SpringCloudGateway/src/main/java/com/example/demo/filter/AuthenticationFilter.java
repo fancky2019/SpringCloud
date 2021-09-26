@@ -39,7 +39,15 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        String url = exchange.getRequest().getURI().getPath();
+        //http://localhost:8080/gateway1/user?name=a
+        ServerHttpRequest request = exchange.getRequest();
+        //http://localhost:8080/gateway1/user?name=a
+        String uri = request.getURI().toString();
+
+        //包含网关的前缀：/gateway1/user
+        String path = exchange.getRequest().getURI().getPath();
+        int index = path.indexOf('/', 1);
+
         //获取token
         String token = exchange.getRequest().getHeaders().getFirst("token");
 
@@ -92,6 +100,11 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             //获取角色信息，此处可做角色权限判断控制。
             String role = decodedJWT.getClaim("role").asString();
             Date expireDate = decodedJWT.getClaim("expireDate").asDate();
+
+
+            //从redis 中加载数据库配置的角色权限信息。判断当前用户的角色请求的路径是否权限符合
+            //获取请求方法:
+             String rolePath=path.substring(9,path.length());
 
             return chain.filter(exchange);
         } catch (Exception e) {

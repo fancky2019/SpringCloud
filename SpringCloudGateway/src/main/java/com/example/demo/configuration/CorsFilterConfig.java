@@ -61,6 +61,13 @@ public class CorsFilterConfig {
     /**
      * 配置跨域
      *
+     * 在头部配置：
+     *     add_header： Access-Control-Allow-Origin *;
+     *     add_header： Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+     *     add_header： Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+     *
+     *
+     *Access-Control-Allow-Credentials: true
      * @return
      */
     @Bean
