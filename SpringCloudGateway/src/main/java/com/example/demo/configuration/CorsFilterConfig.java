@@ -67,7 +67,7 @@ public class CorsFilterConfig {
      *     add_header： Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
      *
      *
-     *
+     *Access-Control-Allow-Credentials: true
      * @return
      */
     @Bean
