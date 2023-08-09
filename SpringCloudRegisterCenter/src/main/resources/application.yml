@@ -10,7 +10,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      #设置三个地址集群高可用，互相注册
+      #设置三个地址集群高可用，互相注册。至少要求主备模式
 #      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
       # 打开注册中心:http://localhost:8761
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
